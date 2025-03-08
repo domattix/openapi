@@ -1,12 +1,12 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Example API
-  termsOfService: https://example.com/terms/
+  title: Domattix.com White-Label Custom Domains and SSL/TLS Certificate Management API
+  termsOfService: https://domattix.com/terms/
   contact:
     name: Contact our support
-    email: contact@example.com
-    url: http://example.com/contact
+    email: contact@domattix.com
+    url: http://domattix.com/contact
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -41,48 +41,27 @@ info:
     interfaces have done for lower-level programming, OpenAPI removes the
     guesswork in calling the service.
 externalDocs:
-  description: "Find out how to create a GitHub repo for your OpenAPI definition."
-  url: 'https://github.com/Redocly/create-openapi-repo'
+  description: "The GitHub repository for this Domattix.com OpenAPI definition."
+  url: 'https://github.com/domattix/openapi'
 tags:
-  - name: Echo
-    description: "Example echo operations."
-  - name: User
-    description: "Example actions on user accounts."
-  - name: Admin
-    description: "Example operations reserved for administrators."
-  - name: Info
-    description: "Example operations for retrieving information."
-  - name: Tag
-    description: "This is a tag description."
-x-tagGroups:
-  - name: General
-    tags:
-      - User
-      - Info
-      - Echo
-  - name: Administration
-    tags:
-      - Admin
+  - name: Domains
+    description: "Custom domain management operations."
+  - name: Certificates
+    description: "Certificate management operations."
 servers:
   - url: https://{tenant}/api/v1
     variables:
       tenant:
         default: www
         description: Your tenant id
-  - url: https://example.com/api/v1
+  - url: https://domattix.com/api/v1
 paths:
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  '/user':
-    $ref: 'paths/user.yaml'
-  '/user/list':
-    $ref: 'paths/user-status.yaml'
-  /pathItem:
-    $ref: paths/pathItem.yaml
-  /pathItemWithExamples:
-    $ref: paths/pathItemWithExamples.yaml
-  '/echo':
-    $ref: 'paths/echo.yaml'
+  '/domains/{domainId}':
+    $ref: 'paths/domains_{domainId}.yaml'
+  '/domains':
+    $ref: 'paths/domains.yaml'
+  '/domains/{domainId}/status':
+    $ref: 'paths/domains-{domainId}-status.yaml'
 components:
   securitySchemes:
     main_auth:
@@ -90,7 +69,7 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: http://example.com/api/oauth/dialog
+          authorizationUrl: http://domattix.com/api/oauth/dialog
           scopes:
             'read:users': read user info
             'write:users': modify or remove users

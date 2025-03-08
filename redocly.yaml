@@ -1,6 +1,6 @@
 # See https://redocly.com/docs/cli/configuration/ for more information.
 apis:
-  sample@v1: 
+  domattix@v1: 
     root: openapi/openapi.yaml
 extends:
   - recommended
@@ -18,6 +18,5 @@ theme:
       languages:  # Array of language config objects; indicates in which languages to generate code samples.
         - lang: curl
         - lang: Node.js
+        - lang: Java
         - lang: JavaScript
-        - lang: PHP
-        - lang: Python
